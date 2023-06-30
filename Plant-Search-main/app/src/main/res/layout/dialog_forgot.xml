@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgotPasswordActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_forgot_password"
+            android:layout_width="294dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:width="78px"
+            android:height="36px"
+            android:gravity="top"
+            android:text="Forgot Password"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/text_register"
+            android:layout_width="336dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="20dp"
+            android:width="78px"
+            android:height="36px"
+            android:gravity="top"
+            android:text="Reset Link Will Be Sent Your Email"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/desc"
+                android:layout_width="294dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:hint="Email"
+                android:padding="8dp"
+                android:textColor="@color/grey" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="288dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#2DDA93"
+                android:layout_marginLeft="5dp"
+                android:text="Send Email"
+                android:textSize="18sp"
+                app:cornerRadius="30dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+

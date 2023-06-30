@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aaaa"
+    app:startDestination="@id/homeFragment2">
+    <fragment
+        android:id="@+id/speciesFragment"
+        android:name="com.example.plantsearchapplication.Species.SpeciesFragment"
+        android:label="fragment_species"
+        tools:layout="@layout/fragment_species" >
+        <action
+            android:id="@+id/action_speciesFragment_to_speciesFragment2"
+            app:destination="@id/speciesFragment2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/speciesFragment2"
+        android:name="com.example.plantsearchapplication.Species.SpeciesFragment2"
+        android:label="fragment_species2"
+        tools:layout="@layout/fragment_species2" >
+        <action
+            android:id="@+id/action_speciesFragment2_to_fragment_species3"
+            app:destination="@id/fragment_species3"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/articlesFragment"
+        android:name="com.example.plantsearchapplication.Articles.ArticlesFragment"
+        android:label="fragment_articles"
+        tools:layout="@layout/fragment_articles" >
+        <action
+            android:id="@+id/action_articlesFragment_to_articlesFragment1"
+            app:destination="@id/articlesFragment1"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.plantsearchapplication.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment2_to_speciesFragment"
+            app:destination="@id/speciesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homeFragment2_to_articlesFragment"
+            app:destination="@id/articlesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.plantsearchapplication.ProfileFragment"
+        android:label="ProfileFragment" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.plantsearchapplication.MainActivity"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/fragment_species3"
+        android:name="com.example.plantsearchapplication.Species.fragment_species3"
+        android:label="fragment_species3"
+        tools:layout="@layout/fragment_species3" />
+    <fragment
+        android:id="@+id/articlesFragment1"
+        android:name="com.example.plantsearchapplication.Articles.ArticlesFragment1"
+        android:label="fragment_articles1"
+        tools:layout="@layout/fragment_articles1" />
+</navigation>

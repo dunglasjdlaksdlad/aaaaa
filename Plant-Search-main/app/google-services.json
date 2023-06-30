@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1055330777598",
+    "firebase_url": "https://plant-search-application-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "plant-search-application",
+    "storage_bucket": "plant-search-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055330777598:android:12bd0b9867cb379562a8af",
+        "android_client_info": {
+          "package_name": "com.example.plantsearchapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055330777598-uj07bhmi41gs3tnso8bjfrjp049f7m7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn9r8Tei10lHduASbmrAZjg2doi-MDj5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055330777598-uj07bhmi41gs3tnso8bjfrjp049f7m7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
