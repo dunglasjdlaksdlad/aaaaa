@@ -61,6 +61,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homeFragment2_to_addnew"
+            app:destination="@id/addnew" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -81,4 +84,9 @@
         android:name="com.example.plantsearchapplication.Articles.ArticlesFragment1"
         android:label="fragment_articles1"
         tools:layout="@layout/fragment_articles1" />
+    <activity
+        android:id="@+id/addnew"
+        android:name="com.example.plantsearchapplication.Addnew.Addnew"
+        android:label="activity_addnew"
+        tools:layout="@layout/activity_addnew" />
 </navigation>

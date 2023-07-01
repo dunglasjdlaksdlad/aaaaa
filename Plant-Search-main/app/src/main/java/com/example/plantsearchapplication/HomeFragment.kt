@@ -20,6 +20,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAdapter: ParentAdapter
+    val REQUEST_IMAGE_CAPTURE=100
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +43,11 @@ class HomeFragment : Fragment() {
 
         binding.articles.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_articlesFragment)
+        }
+
+        binding.addingNew.setOnClickListener {
+            findNavController().navigate(R.id.addnew)
+
         }
 
 
