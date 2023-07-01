@@ -1,5 +1,6 @@
 package com.example.plantsearchapplication.Species
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,7 +18,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import androidx.navigation.fragment.findNavController
-
+import android.util.Base64
 private lateinit var spRecyclerview2 : RecyclerView
 private lateinit var dbref2 : DatabaseReference
 private lateinit var spArrayList2 : ArrayList<SP>

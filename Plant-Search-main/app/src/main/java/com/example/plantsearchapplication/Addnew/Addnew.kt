@@ -29,63 +29,75 @@ import java.io.ByteArrayOutputStream
 
 
 class Addnew : AppCompatActivity() {
+    companion object {
+        private val REQUEST_TAKE_PHOTO = 0
+        private val REQUEST_SELECT_IMAGE_IN_ALBUM = 1
+    }
     lateinit var imageView: ImageView
-    private val cameraRequest = 1888
     var sImage:String? =""
     private lateinit var db: DatabaseReference
+    private lateinit var binding: ActivityAddnewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnew)
 
         if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_DENIED)
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), cameraRequest)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_TAKE_PHOTO)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_SELECT_IMAGE_IN_ALBUM)
+
         imageView = findViewById(R.id.image)
+        val take: Button = findViewById(R.id.take)
+        take.setOnClickListener {
+            takePhoto()
+        }
+        val pick: Button = findViewById(R.id.pick)
+        pick.setOnClickListener {
+            selectImageInAlbum()
+        }
+        val insert: Button = findViewById(R.id.add)
+        insert.setOnClickListener {
+            insertdata()
+        }
     }
 
-    fun pick(view: View) {
+    fun selectImageInAlbum() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
         if (intent.resolveActivity(packageManager) != null) {
-            ActivityResultLauncher.launch(intent)
+            startActivityForResult(intent, REQUEST_SELECT_IMAGE_IN_ALBUM)
         }
     }
-    fun take(view: View) {
+    fun takePhoto() {
         val intent1 = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (intent1.resolveActivity(packageManager) != null) {
-            ActivityResultLauncher.launch(intent1)
+            startActivityForResult(intent1, REQUEST_TAKE_PHOTO)
         }
     }
 
-    fun Add(view: View){
+    fun insertdata(){
         val name = findViewById<EditText?>(R.id.name).text.toString()
         val sp = findViewById<EditText?>(R.id.name).text.toString()
         val kingdom = findViewById<EditText?>(R.id.name).text.toString()
         val family=findViewById<EditText?>(R.id.name).text.toString()
         val decription=findViewById<EditText?>(R.id.name).text.toString()
-        //sImage.toString()
         db= FirebaseDatabase.getInstance().getReference("Species")
         val item= SP(image=sImage,name=name,kingdom=kingdom,family=family,decription=decription)
-
         db.child(sp).child("sp").setValue(sp)
         db.child(sp).child(sp).child(name).setValue(item)
     }
 
-    private val ActivityResultLauncher =registerForActivityResult<Intent,ActivityResult>(
-        ActivityResultContracts.StartActivityForResult()
-    ){result: ActivityResult ->
-        if(result.resultCode== RESULT_OK){
-            val uri=result.data!!.data
-            try {
-                val inputStream = contentResolver.openInputStream(uri!!)
-                val myBitmap= BitmapFactory.decodeStream(inputStream)
-                val stream =ByteArrayOutputStream()
-                myBitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
-                val bytes=stream.toByteArray()
-                sImage= Base64.encodeToString(bytes,Base64.DEFAULT)
-                imageView.setImageBitmap(myBitmap)
-                inputStream!!.close()
-            }catch(ex:Exception){}
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_TAKE_PHOTO) {
+            val photo: Bitmap = data?.extras?.get("data") as Bitmap
+            imageView.setImageBitmap(photo)
         }
+        if (requestCode == REQUEST_SELECT_IMAGE_IN_ALBUM) {
+            imageView.setImageURI(data?.data)
+        }
+        sImage=data?.dataString
     }
+
 }
